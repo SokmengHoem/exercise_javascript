@@ -22,5 +22,5 @@ function median(numbers) {
         return numbers[midIndex];
     }
 }
-const numbers = [5, 2, 1, 4, 7];
+const numbers = [5, 2, 1, 4, 6];
 console.log(median(numbers)); 

@@ -1,22 +1,19 @@
 const fs = require('fs');
 
 function readFileAsync(filePath, callback) {
-  fs.readFile(filePath, 'utf8', (err, data) => {
-    if (err) {
-      callback(err);
-    } else {
-      callback(null,data);
-    }
-  });
+   callback(filePath);
 }
 
-const filePath = 'C:\\DriveD\\SabaiCode\\Javascript\\exercise\\exercise_javascript\\ex3\\example.txt'; 
+const filePath = 'C:\\DriveD\\SabaiCode\\Javascript\\exercise\\exercise_javascript\\ex3\\example.txt';
 
+const read = (filePath) => {
+  fs.readFile(filePath,'utf8', (err, data) => {
+    if (err) {
+      throw new Error('Error reading file:', err);
+    } else {
+      console.log('File contents:', data);
+    }
+  });
+};
 
-readFileAsync(filePath, (err, data) => {
-  if (err) {
-    console.error('Error reading file:', err);
-  } else {
-    console.log('File contents:', data);
-  }
-});
+readFileAsync(filePath, read);
